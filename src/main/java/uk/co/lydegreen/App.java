@@ -1,4 +1,4 @@
-package uk.co.lydegreen
+package uk.co.lydegreen;
 /**
  * Created by richard on 01/11/15.
  */
