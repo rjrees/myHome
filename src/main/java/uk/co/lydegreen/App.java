@@ -9,12 +9,12 @@ import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import com.dwbook.phonebook.resources.ContactResource;
 import org.skife.jdbi.v2.DBI;
 import io.dropwizard.jdbi.DBIFactory;
-import com.dwbook.phonebook.resources.ClientResource;
+import uk.co.lydegreen.resources.ClientResource;
 import com.sun.jersey.api.client.Client;
 import io.dropwizard.client.JerseyClientBuilder;
+import uk.co.lydegreen.resources.RecipeResource;
 
 public class App extends Application<MyHomeConfiguration>{
 
@@ -41,10 +41,10 @@ public class App extends Application<MyHomeConfiguration>{
         final DBI jdbi = factory
                 .build(e, c.getDataSourceFactory(), "mysql");
         // Add the resource to the environment
-        e.jersey().register(new ContactResource(jdbi, e.getValidator()));
+        e.jersey().register(new RecipeResource(jdbi, e.getValidator()));
 
         // build the client and add the resource to the environment
         final Client client = new JerseyClientBuilder(e).build("REST Client");
-        e.jersey().register(new ClientResource(client));
+        e.jersey().register(new RecipeResource(client);
     }
 }

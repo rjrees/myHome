@@ -1,7 +1,6 @@
 package uk.co.lydegreen.resources;
 
 import org.skife.jdbi.v2.DBI;
-
 import javax.validation.Validator;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
