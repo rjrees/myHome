@@ -11,6 +11,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.skife.jdbi.v2.DBI;
 import io.dropwizard.jdbi.DBIFactory;
+import uk.co.lydegreen.representations.Recipe;
 import uk.co.lydegreen.resources.ClientResource;
 import com.sun.jersey.api.client.Client;
 import io.dropwizard.client.JerseyClientBuilder;
@@ -31,10 +32,6 @@ public class App extends Application<MyHomeConfiguration>{
     @Override
     public void run(MyHomeConfiguration c, Environment e) throws Exception {
         LOGGER.info("Method App#run() called");
-        for (int i = 0; i < c.getMessageRepetitions(); i++) {
-            System.out.println(c.getMessage());
-        }
-        System.out.println(c.getAdditionalMessage());
 
         // Create a DBI factory and build a JDBI instance
         final DBIFactory factory = new DBIFactory();
@@ -45,6 +42,6 @@ public class App extends Application<MyHomeConfiguration>{
 
         // build the client and add the resource to the environment
         final Client client = new JerseyClientBuilder(e).build("REST Client");
-        e.jersey().register(new RecipeResource(client);
+        e.jersey().register(new ClientResource(client));
     }
 }

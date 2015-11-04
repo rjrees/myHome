@@ -18,7 +18,6 @@ import java.util.Set;
  * Created by richard on 02/11/15.
 */
 
-
 @Path("/recipe")
 @Produces(MediaType.APPLICATION_JSON)
 public class RecipeResource {

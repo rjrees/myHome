@@ -18,4 +18,8 @@ MyDATABASE=${4-${DATABASE-"myHouse"}}
 MyGRANTUSER=${5-"housedbuser"}
 ImportFullTestDataSet=${6-"Y"}
 
-echo "$(date) Create database $MyDATABASE with test data"
+echo "$(date) Creating database $MyDATABASE on host $MyHOST for user $MyGRANTUSER"
+mysql -u $MyUSER -p$MyPASS -h $MyHOST -Bse 'CREATE DATABASE `'$MyDATABASE'` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT COLLATE utf8_general_ci;'
+mysql -u $MyUSER -p$MyPASS -h $MyHOST $MyDATABASE -Bse 'GRANT CREATE TEMPORARY TABLES, SELECT, UPDATE, INSERT, DELETE, EXECUTE ON `'$MyDATABASE'`.* TO `'$MyGRANTUSER'`'
+echo "$(date) Loading schema"
+mysql -u $MyUSER -p$MyPASS -h $MyHOST $MyDATABASE < ./myHome.sql

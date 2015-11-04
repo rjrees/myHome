@@ -14,7 +14,7 @@ public interface recipeDAO {
 
     @Mapper(RecipeMapper.class)
     @SqlQuery("select * from Recipe where id = :id")
-    Contact getRecipeById(@Bind("id") int id);
+    Recipe getRecipeById(@Bind("id") int id);
 
     @GetGeneratedKeys
     @SqlUpdate("insert into RecipeIngredients (id, UID, lastName, phone) values (NULL, :firstName, :lastName, :phone)")

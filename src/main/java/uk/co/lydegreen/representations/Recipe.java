@@ -47,6 +47,7 @@ public class Recipe {
         return phone;
     }
 
+/**
     @JsonIgnore
     @ValidationMethod(message="John Doe is not a valid person!")
     public boolean isValidPerson() {
@@ -56,6 +57,6 @@ public class Recipe {
             return true;
         }
     }
-
+**/
 
 }
