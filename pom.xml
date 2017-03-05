@@ -7,7 +7,9 @@
     <groupId>uk.co.lydegreen</groupId>
     <artifactId>myHome</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <properties>
+        <dropwizard.version>1.0.6</dropwizard.version>
+    </properties>
     <repositories>
         <repository>
             <id>sonatype-nexus-snapshots</id>
@@ -18,7 +20,7 @@
     <dependencies>
         <dependency><groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-client</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${dropwizard.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -28,7 +30,7 @@
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-jdbi</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${dropwizard.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -39,8 +41,13 @@
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-core</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${dropwizard.version}</version>
         </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-client</artifactId>
+        <version>2.19</version>
+    </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -57,8 +64,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>1.6</version>
+                <version>2.3</version>
                 <configuration>
+                    <createDependencyReducedPom>true</createDependencyReducedPom>
                     <filters>
                         <filter>
                             <artifact>*:*</artifact>
@@ -78,21 +86,22 @@
                         </goals>
                         <configuration>
                             <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>uk.co.lydegreen.App</mainClass>
                                 </transformer>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                             </transformers>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>
+            <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.0.5</version>
                 <configuration>
                     <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+                    <changeLogFile>src/main/resources/liquibase/myHome.xml</changeLogFile>
                 </configuration>
                 <executions>
                     <execution>
@@ -102,10 +111,8 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin> -->
-
-
-            </plugins>
+            </plugin>
+        </plugins>
         <resources>
     <resource>
         <directory>src/main/resources</directory>
