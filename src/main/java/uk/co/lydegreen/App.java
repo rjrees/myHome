@@ -11,11 +11,10 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.skife.jdbi.v2.DBI;
 import io.dropwizard.jdbi.DBIFactory;
-import uk.co.lydegreen.representations.Recipe;
-import uk.co.lydegreen.resources.ClientResource;
-import com.sun.jersey.api.client.Client;
-import io.dropwizard.client.JerseyClientBuilder;
-import uk.co.lydegreen.resources.RecipeResource;
+import uk.co.lydegreen.representations.*;
+//import com.sun.jersey.api.client.Client;
+//import io.dropwizard.client.JerseyClientBuilder;
+import uk.co.lydegreen.resources.*;
 
 public class App extends Application<MyHomeConfiguration>{
 
@@ -33,15 +32,15 @@ public class App extends Application<MyHomeConfiguration>{
     public void run(MyHomeConfiguration c, Environment e) throws Exception {
         LOGGER.info("Method App#run() called");
 
-        // Create a DBI factory and build a JDBI instance
+        // Create a DBI factory and build a JDBI instancel
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory
                 .build(e, c.getDataSourceFactory(), "mysql");
         // Add the resource to the environment
         e.jersey().register(new RecipeResource(jdbi, e.getValidator()));
-
-        // build the client and add the resource to the environment
-        final Client client = new JerseyClientBuilder(e).build("REST Client");
-        e.jersey().register(new ClientResource(client));
+        e.jersey().register(new StatementResource(jdbi, e.getValidator()));
+        /** build the client and add the resource to the environment
+        final Statement statement= new JerseyClientBuilder(e).build("REST Client");
+        e.jersey().register(new StatementResource(statement));**/
     }
 }

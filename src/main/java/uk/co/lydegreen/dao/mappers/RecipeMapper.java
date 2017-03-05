@@ -14,8 +14,8 @@ public class RecipeMapper implements ResultSetMapper<Recipe>{
 
     public Recipe map(int index, ResultSet r, StatementContext ctx)
             throws SQLException {
-        return new Contact(
-                r.getInt("id"), r.getString("firstName"),
-                r.getString("lastName"),r.getString("phone"));
+        return new Recipe(
+                r.getInt("id"), r.getString("uid"), r.getString("name"),
+                r.getString("description"));
     }
 }

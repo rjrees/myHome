@@ -4,59 +4,52 @@ package uk.co.lydegreen.representations;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.dropwizard.validation.ValidationMethod;
 import org.hibernate.validator.constraints.*;
+
 /**
  * Created by richard on 01/11/15.
  */
+
 public class Recipe {
 
     private final int id;
 
     @NotBlank
-    @Length(min = 2, max = 255)
-    private final String firstName;
+    @Length(min = 2, max = 10)
+    private final String UID;
 
     @NotBlank
-    @Length(min = 2, max = 255)
-    private final String lastName;
+    @Length(min = 2, max = 500)
+    private final String name;
 
     @NotBlank
-    @Length(min = 2, max = 30)
-    private final String phone;
+    @Length(min = 2, max = 500)
+    private final String description;
 
-
-    public Recipe(int id, String firstName, String lastName, String phone) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-    }
 
     public int getId() {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
+
+    public Recipe(int id, String UID, String name, String description) {
+        this.id = id;
+        this.UID = UID;
+        this.name = name;
+        this.description = description;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getName() {
+        return name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getDescription() {
+        return description;
     }
 
-/**
-    @JsonIgnore
-    @ValidationMethod(message="John Doe is not a valid person!")
-    public boolean isValidPerson() {
-        if (firstName.equals("John") && lastName.equals("Doe")) {
-            return false;
-        } else {
-            return true;
-        }
+    public String getUID() {
+        return UID;
     }
-**/
+
+
 
 }
