@@ -1,0 +1,5 @@
+database:
+   driverClass: com.mysql.jdbc.Driver
+   user: $username
+   password: $password
+   url: jdbc:mysql://$servername:$port/$dbhome

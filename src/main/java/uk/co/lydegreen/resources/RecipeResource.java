@@ -2,17 +2,16 @@ package uk.co.lydegreen.resources;
 
 import org.skife.jdbi.v2.DBI;
 import javax.validation.Validator;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import uk.co.lydegreen.dao.recipeDAO;
+import uk.co.lydegreen.representations.Recipe;
+import uk.co.lydegreen.dao.RecipeDAO;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Set;
+
 
 /**
  * Created by richard on 02/11/15.
@@ -22,22 +21,29 @@ import java.util.Set;
 @Produces(MediaType.APPLICATION_JSON)
 public class RecipeResource {
 
-    private final recipeDAO recipeDAO;
+    private final RecipeDAO recipeDAO;
     private final Validator validator;
 
-    public ContactResource(DBI jdbi, Validator validator) {
-        recipeDAO = jdbi.onDemand(recipeDAO.class);
+    public RecipeResource(DBI jdbi, Validator validator) {
+        recipeDAO = jdbi.onDemand(RecipeDAO.class);
         this.validator = validator;
     }
 
     @GET
     @Path("/{id}")
-    public Response getRecipe(@PathParam("id") int id) {
+    public Response getRecipeById(@PathParam("id") int id) {
         // retrieve information about the a recipe with the provided id
-        recipeDAO recipe = recipeDAO.getRecipeById(id);
+        Recipe recipe = recipeDAO.getRecipeById(id);
         return Response
                 .ok(recipe)
                 .build();
     }
-
+    @POST
+    @Path("/add")
+    public Response createRecipe(Recipe recipe, @PathParam("UID") String UID, @PathParam("name") String name, @PathParam("description") String description); {
+    Recipe recipe = recipeDAO.createRecipe(UID, name, description);
+        return Response
+                .ok(id)
+                .build();
+    }
 }

@@ -1,6 +1,5 @@
-message: This is a message defined in the configuration file config.yaml.
 database:
    driverClass: com.mysql.jdbc.Driver
-   user: recipe
-   password: recipepassword
-   url: jdbc:mysql://legion.pariah.local/myhome
+   user: myHome
+   password: 6btFCyQAj6szk2E9Gg2yZ2FxM
+   url: jdbc:mysql://legion.pariah.local:3306/myHome

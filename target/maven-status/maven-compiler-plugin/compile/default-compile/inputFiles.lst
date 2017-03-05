@@ -1,5 +1,10 @@
-/homes/richard/workspace/MyHome/src/main/java/uk/co/lydegreen/dao/mappers/RecipeMapper.java
-/homes/richard/workspace/MyHome/src/main/java/uk/co/lydegreen/App.java
-/homes/richard/workspace/MyHome/src/main/java/uk/co/lydegreen/representations/Recipe.java
-/homes/richard/workspace/MyHome/src/main/java/uk/co/lydegreen/dao/recipeDAO.java
-/homes/richard/workspace/MyHome/src/main/java/uk/co/lydegreen/MyHomeConfiguration.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/representations/Statement.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/dao/statementDAO.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/resources/StatementResource.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/App.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/dao/mappers/RecipeMapper.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/dao/RecipeDAO.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/dao/mappers/statementMapper.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/MyHomeConfiguration.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/representations/Recipe.java
+/homes/richard/Dropbox/workspace/MyHome/src/main/java/uk/co/lydegreen/resources/RecipeResource.java

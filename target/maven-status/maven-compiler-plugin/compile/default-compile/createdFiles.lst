@@ -1,0 +1,10 @@
+uk/co/lydegreen/dao/mappers/statementMapper.class
+uk/co/lydegreen/App.class
+uk/co/lydegreen/dao/mappers/RecipeMapper.class
+uk/co/lydegreen/representations/Statement.class
+uk/co/lydegreen/dao/statementDAO.class
+uk/co/lydegreen/representations/Recipe.class
+uk/co/lydegreen/resources/StatementResource.class
+uk/co/lydegreen/dao/RecipeDAO.class
+uk/co/lydegreen/resources/RecipeResource.class
+uk/co/lydegreen/MyHomeConfiguration.class
