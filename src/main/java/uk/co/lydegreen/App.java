@@ -39,6 +39,7 @@ public class App extends Application<MyHomeConfiguration>{
         // Add the resource to the environment
         e.jersey().register(new RecipeResource(jdbi, e.getValidator()));
         e.jersey().register(new StatementResource(jdbi, e.getValidator()));
+        e.jersey().register(new ContactResource(jdbi, e.getValidator()));
         /** build the client and add the resource to the environment
         final Statement statement= new JerseyClientBuilder(e).build("REST Client");
         e.jersey().register(new StatementResource(statement));**/

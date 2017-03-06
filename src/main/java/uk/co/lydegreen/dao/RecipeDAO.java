@@ -17,7 +17,7 @@ public interface RecipeDAO {
     Recipe getRecipeById(@Bind("id") int id);
 
     @GetGeneratedKeys
-    @SqlUpdate("insert into Recipe (id, UID, Description, created_on, updated datetime) values (NULL, :UID, :name, :description)")
+    @SqlUpdate("insert into Recipe (id, UID, Description, created_on, updated, datetime) values (NULL, :UID, :name, :description)")
     int createRecipe(@Bind("UID") String UID, @Bind("name") String name, @Bind("description") String description);
 
     @SqlUpdate("insert into Recipe (id, UID, Description, created_on, updated datetime) values (NULL, :UID, :name, :description)")
