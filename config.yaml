@@ -1,5 +1,0 @@
-database:
-   driverClass: com.mysql.jdbc.Driver
-   user: myHome
-   password: 6btFCyQAj6szk2E9Gg2yZ2FxM
-   url: jdbc:mysql://legion.pariah.local:3306/myHome
