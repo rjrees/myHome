@@ -1,0 +1,6 @@
+changeLogFile: uk/co/lydegreen/project/liquibase/changelog.xml
+driver: com.mysql.jdbc.Driver
+url: jdbc:mysql://$servername:3306/$dbname
+username: $username
+password: $password
+git
