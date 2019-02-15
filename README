@@ -1,6 +1,6 @@
-Web Service
+#Web API Service
 
-A simple home webservice for things you need in a house.
+##A simple webservice for house things WIP
 
 
 mvn package
