@@ -1,2 +1,2 @@
-FROM mariadb
+FROM mariadb:latest
 EXPOSE 3306
