@@ -13,7 +13,7 @@ import uk.co.lydegreen.representations.Statement;
 public interface statementDAO {
 
     @Mapper(statementMapper.class)
-    @SqlQuery("select * from AccountStatement where ID = :id")
+    @SqlQuery("select * from AccountStatement where ID = id")
     Statement getStatementByDateRange(@Bind("id") int id);
 
 }
