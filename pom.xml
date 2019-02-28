@@ -100,8 +100,8 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.0.5</version>
                 <configuration>
-                    <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
-                    <changeLogFile>src/main/resources/liquibase/myHome.xml</changeLogFile>
+                    <propertyFile>apis/src/main/resources/liquibase/liquibase.properties</propertyFile>
+                    <changeLogFile>apis/src/main/resources/liquibase/myHome.xml</changeLogFile>
                 </configuration>
                 <executions>
                     <execution>
@@ -116,7 +116,7 @@
         </plugins>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>apis/myHome/src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>

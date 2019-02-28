@@ -63,6 +63,7 @@ sudo service docker restart
 
 # # # Pull Repo for testing purposes. Final work will create image and run app with one command.
 
-kubectl cluster up
-kubectl login -u system:admin
-kubectl adm policy add-cluster-role-to-user cluster-admin system
+#kubectl cluster up
+#kubectl login -u system:admin
+#kubectl adm policy add-cluster-role-to-user cluster-admin system
+kubectl create namespace myhome

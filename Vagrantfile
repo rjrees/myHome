@@ -26,7 +26,7 @@ end
         osubuntu.vm.network "forwarded_port", guest: 8443, host: 8443
         osubuntu.vm.network "forwarded_port", guest: 8080, host: 5150
         osubuntu.vm.network "forwarded_port", guest: 443, host: 9443
-        # Virtualbox specific config
+        # Virtualbox specific configm
         osubuntu.vm.provider :virtualbox do |vb, override|
           vb.cpus = vcpus
           vb.memory = memory

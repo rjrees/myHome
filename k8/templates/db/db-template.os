@@ -1,8 +1,8 @@
 kind: Template
 apiVersion: v1
 metadata:
-  name: java-template
-  alias: java.local
+  name: db-template
+  alias: db.local
 
 #### OBJECTS ####
 objects:
@@ -10,7 +10,7 @@ objects:
   - kind: "BuildConfig"
     apiVersion: "v1"
     metadata:
-      name: "${ENV}-java-buildconfig"
+      name: "${ENV}-db-buildconfig"
     spec:
       source:
         type: "Git"
@@ -24,21 +24,21 @@ objects:
       strategy:
         type: "Docker"
         dockerStrategy:
-          dockerfilePath: docker/java/Dockerfile
+          dockerfilePath: docker/db/Dockerfile
           env:
             - name: "ENV_NAME"
               value: "${ENV}"
       output:
         to:
           kind: "ImageStreamTag"
-          name: "${ENV}-java:latest"
+          name: "${ENV}-db:latest"
 
   ##IMAGE STREAM ##
 
   - kind: ImageStream
     apiVersion: v1
     metadata:
-      name: "${ENV}-java"
+      name: "${ENV}-db"
     spec:
       lookupPolicy:
         local: false
@@ -46,7 +46,7 @@ objects:
         - annotations: null
           from:
             kind: DockerImage
-            name: "${docker-registry}:5000/${ENV}/${ENV}-java:latest"
+            name: "${docker-registry}:5000/${ENV}/${ENV}-db:latest"
           generation: null
           importPolicy: {}
           name: latest
@@ -56,20 +56,20 @@ objects:
       dockerImageRepository: ""
 
   ##ROUTE##
-  - kind: Route
-    apiVersion: v1
-    metadata:
-      name: ${ROUTENAME}
-      annotations:
-        openshift.io/host.generated: "true"
-    spec:
-      port:
-        targetPort: 443
-      to:
-        kind: Service
-        name: ${ENV}-java
-      tls:
-        termination: edge
+ # - kind: Route
+ #   apiVersion: v1
+ #   metadata:
+ #     name: ${ROUTENAME}
+ #     annotations:
+ #       openshift.io/host.generated: "true"
+ #   spec:
+ #     port:
+ #       targetPort: 443
+ #     to:
+ #       kind: Service
+ #       name: ${ENV}-db
+ #     tls:
+ #       termination: edge
 
 ### PARAMETERS ###
 parameters:
@@ -86,7 +86,3 @@ parameters:
 
   - name: BRANCH
     description: Git Branch
-
-  - name: ROUTENAME
-    description: Route Name
-    value: java-www
