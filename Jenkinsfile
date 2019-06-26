@@ -18,14 +18,14 @@ pipeline {
         stage('Test API') {
             steps {
                 sh '''
-
+                    mvn clean test
                 '''
             }
         }
         stage('Deploy API') {
             steps {
                 sh '''
-
+                    mvn package deploy
                 '''
             }
         }
