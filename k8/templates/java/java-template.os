@@ -76,10 +76,6 @@ parameters:
   - name: ENV
     description: Environment name
 
-  - name: SECRET
-    description: Secret name
-    value: openshift
-
   - name: REPO
     description: Git Repository
     value: "'https://github.com/rjrees/myHome.git"
@@ -89,4 +85,4 @@ parameters:
 
   - name: ROUTENAME
     description: Route Name
-    value: java-www
+    value: www

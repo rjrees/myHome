@@ -1,0 +1,11 @@
+---
+kind: Pod
+metadata:
+  name: java
+spec:
+  containers:
+    - name: java
+      image: openjdk:8-jre
+      args:
+        - sleep
+        - "1000"
