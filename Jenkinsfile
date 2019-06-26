@@ -11,7 +11,7 @@ pipeline {
         stage('Build API') {
             steps {
                 sh '''
-                    gradlew build
+                    mvn clean build
                 '''
             }
         }
