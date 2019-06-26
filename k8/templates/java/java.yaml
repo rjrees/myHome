@@ -1,11 +1,23 @@
 ---
+apiVersion: v1
 kind: Pod
 metadata:
   name: java
 spec:
+  restartPolicy: Never
+  volumes:
+    - name: java
+      hostPath:
+        path: /target
   containers:
     - name: java
       image: openjdk:8-jre
+      command: ['java -jar ./target/myHome-1.0-SNAPSHOT.jar server ./config.yaml']
+      ports:
+        - containerPort: 443
+      volumeMounts:
+        - name: java
+          mountPath: /target
       args:
         - sleep
-        - "1000"
+        - "1000000"
