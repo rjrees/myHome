@@ -110,8 +110,8 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.6.0</version>
                 <configuration>
-                    <propertyFile>apis/src/main/resources/liquibase/liquibase.properties</propertyFile>
-                    <changeLogFile>apis/src/main/resources/liquibase/myHome.xml</changeLogFile>
+                    <propertyFile>apis/myHome/resources/liquibase.properties</propertyFile>
+                    <changeLogFile>apis/myHome/resources/myHome.xml</changeLogFile>
                 </configuration>
                 <executions>
                     <execution>
