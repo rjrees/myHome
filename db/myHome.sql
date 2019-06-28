@@ -16,7 +16,7 @@ PRIMARY KEY (`id`)
 CREATE TABLE IF NOT EXISTS RecipeIngredients
 (
 id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-UID varchar(10),
+uid varchar(10),
 Description varchar(255),
 Receipe int,
 created_on datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
@@ -27,7 +27,7 @@ FOREIGN KEY (id) REFERENCES Recipe(id)
 CREATE TABLE IF NOT EXISTS  RecipeSteps
 (
 ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-UID varchar(10),
+uid varchar(10),
 StepPosition int,
 Step varchar(500),
 Recipe int,
@@ -40,7 +40,7 @@ FOREIGN KEY (id) REFERENCES Recipe(id)
 CREATE TABLE IF NOT EXISTS  AccountStatement
 (
 ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-UID varchar(10),
+uid varchar(10),
 Public boolean,
 TransactionDate date,
 Type varchar (4),
@@ -57,7 +57,7 @@ PRIMARY KEY (`id`)
 CREATE TABLE IF NOT EXISTS message
 (
 ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-UID varchar(10),
+uid varchar(10),
 Created date, `created_on` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
 ValidFrom date,
 ValidExpiration date,
