@@ -41,7 +41,6 @@ EOF
     sudo usermod -aG dockerroot vagrant
     sudo systemctl enable docker.service
     sudo systemctl start docker
-    bindir='/usr/bin/oc'
     sudo chown root:dockerroot /var/run/docker.sock
 
 }
