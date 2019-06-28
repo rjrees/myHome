@@ -83,8 +83,11 @@ spec:
     metadata:
       labels:
         run: mariadb
-        app: mariadb
     spec:
+      volumes:
+        - name: vol
+          hostPath:
+            path: /target/mariadb
       containers:
         - name: mariaddb
           image: mariadb:latest
@@ -92,4 +95,4 @@ spec:
             - containerPort: 3306
           volumeMounts:
             - name: vol
-                mountPath: /mariadb
+              mountPath: /mariadb
