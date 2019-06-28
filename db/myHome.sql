@@ -1,6 +1,8 @@
+--liquibase formatted sql
 
 USE myHome;
-CREATE TABLE IF NOT EXISTS  Recipe
+
+CREATE TABLE IF NOT EXISTS Recipe
 (
 id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 uid varchar(10),
@@ -52,7 +54,7 @@ ACL int,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Bankstatement';
 
-CREATE TABLE IF NOT EXISTS  messages
+CREATE TABLE IF NOT EXISTS message
 (
 ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 UID varchar(10),
@@ -63,11 +65,3 @@ Description varchar(100),
 Message varchar(500),
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Recipe';
-
-CREATE PROCEDURE recipe_complete
-(IN `` CHAR(20))
-BEGIN
-  SELECT Name, HeadOfState FROM Country
-  WHERE Continent = con;
-END //
-DELIMITER ;

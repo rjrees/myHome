@@ -111,7 +111,7 @@
                 <version>3.6.0</version>
                 <configuration>
                     <propertyFile>apis/myHome/resources/liquibase.properties</propertyFile>
-                    <changeLogFile>apis/myHome/resources/myHome.xml</changeLogFile>
+                    <changeLogFile>db/myHome.sql</changeLogFile>
                 </configuration>
                 <executions>
                     <execution>
