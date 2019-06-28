@@ -2,6 +2,7 @@
 /build/
 target/
 !gradle/wrapper/gradle-wrapper.jar
+ui/
 
 ### STS ###
 .apt_generated
