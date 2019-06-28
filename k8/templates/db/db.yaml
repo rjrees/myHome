@@ -49,12 +49,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      run: mariadb
+      app: mariadb
   replicas: 1
   template:
     metadata:
       labels:
-        run: mariadb
+        app: mariadb
     spec:
       volumes:
         - name: vol
