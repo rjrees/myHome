@@ -1,0 +1,74 @@
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: auth-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /target/auth
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: auth-pvc
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth
+  labels:
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+      name: auth
+      targetPort: 8080
+  selector:
+    app: auth
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth
+spec:
+  selector:
+    matchLabels:
+      app: auth
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      volumes:
+        - name: auth-vol
+          hostPath:
+            path: /target/auth
+      containers:
+        - name: auth
+          image: openidentityplatform/openam:latest
+          #command: ['ps -ef']
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: auth-vol
+              mountPath: /auth
+          env:

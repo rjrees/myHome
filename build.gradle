@@ -1,0 +1,4 @@
+plugins {
+    id 'idea' // optional (to generate IntelliJ IDEA project files)
+    id 'application'
+}

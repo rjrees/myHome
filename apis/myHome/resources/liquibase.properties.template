@@ -1,0 +1,5 @@
+changeLogFile: apis/myhome/resources/liquibase/changelog.xml
+driver: com.mysql.jdbc.Driver
+url: jdbc:mysql://${hostname}:3306/${dbname}
+username: ${username}
+password: ${password}

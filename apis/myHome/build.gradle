@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'idea' // optional (to generate IntelliJ IDEA project files)
+    id 'application'
+}
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+description = 'myHome api layer'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+mainClassName = 'uk.co.lydegreen.App'
+group = 'uk.co.lydegreen'
+version = '0.0.1-SNAPSHOT'
+def changeLog = "$projectDir/apis/myHome/resources/liquibase/changelog.xml"
+
+
+//TODO Get Liquibase to work
+dependencies {
+    implementation 'io.dropwizard:dropwizard-core:1.3.12'
+    implementation 'io.dropwizard:dropwizard-jdbi:1.3.12'
+    implementation 'io.dropwizard:dropwizard-auth:1.3.12'
+    implementation 'io.dropwizard:dropwizard-client:1.3.12'
+    implementation 'mysql:mysql-connector-java:5.1.37'
+    implementation 'org.glassfish.jersey.core:jersey-client:2.19'
+    testImplementation 'org.junit.jupiter:junit-jupiter:RELEASE'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:RELEASE'
+
+}
+
+run {
+    args = ['server', '../config.xml']
+}
