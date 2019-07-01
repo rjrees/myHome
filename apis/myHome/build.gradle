@@ -2,7 +2,7 @@ description 'myHome api layer'
 
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'liquibase'
+
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -25,8 +25,9 @@ dependencies {
     classpath 'org.liquibase:liquibase-core:3.4.1'
     classpath "org.liquibase:liquibase-gradle-plugin:1.1.1"
     compile 'org.glassfish.jersey.core:jersey-client:2.19'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:RELEASE'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:RELEASE'
+
 }
 
 

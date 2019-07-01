@@ -5,12 +5,14 @@ package uk.co.lydegreen;
  */
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
+import io.dropwizard.auth.basic.BasicCredentials;
 
-public class MyHomeAuthenticator {
-    @Override
-    public void run(ExampleConfiguration configuration,
-                    Environment environment) {
-        environment.jersey().register(new OAuthProvider<User>(new ExampleAuthenticator(),
-                "SUPER SECRET STUFF"));
+public class MyHomeAuthenticator implements Authenticator<BasicCredentials, User> {
+        @Override
+        public Optional<User> authenticate(BasicCredentials credentials) throws AuthenticationException {
+            if ("secret".equals(credentials.getPassword())) {
+                return Optional.of(new User(credentials.getUsername()));
+            }
+            return Optional.absent();
+        }
     }
-}
