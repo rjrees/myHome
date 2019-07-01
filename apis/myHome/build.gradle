@@ -2,7 +2,7 @@ description 'myHome api layer'
 
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'liquibase'
+//apply plugin: 'liquibase'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -10,7 +10,7 @@ targetCompatibility = 1.8
 group = 'uk.co.lydegreen'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
-def changeLog = "$projectDir/apis/myHome/resources/liquibase/changelog.xml"
+//def changeLog = "$projectDir/apis/myHome/resources/liquibase/changelog.xml"
 
 repositories {
     mavenCentral()
@@ -24,7 +24,7 @@ dependencies {
     compile 'mysql:mysql-connector-java:5.1.37'
     classpath 'org.liquibase:liquibase-core:3.4.1'
 
-    classpath "org.liquibase:liquibase-gradle-plugin:1.1.1"
+    //classpath "org.liquibase:liquibase-gradle-plugin:1.1.1"
     compile 'org.glassfish.jersey.core:jersey-client:2.19'
     testCompile 'junit:junit:5.4.2'
 }
