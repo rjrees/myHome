@@ -1,0 +1,75 @@
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ldap-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /target/ldap
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: ldap-pvc
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ldap
+  labels:
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 1636
+      protocol: TCP
+      name: ldaps
+      targetPort: 1636
+  selector:
+    app: ldap
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ldap
+spec:
+  selector:
+    matchLabels:
+      app: ldap
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ldap
+    spec:
+      volumes:
+        - name: ldap-vol
+          hostPath:
+            path: /target/ldap
+      containers:
+        - name: ldap
+          image: openidentityplatform/opendj:latest
+          #command: ['ps -ef']
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: ldap-vol
+              mountPath: /ldap
+          env:
+            - ROOT_PASSWORD: "${ldap_password}"
