@@ -26,7 +26,7 @@ import uk.co.lydegreen.resources.*;
 
 public class App extends Application<MyHomeConfiguration>{
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    //private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) throws Exception {
         new App().run(args);
@@ -87,11 +87,13 @@ public class App extends Application<MyHomeConfiguration>{
             // Register the authenticator with the environment
 
         });
+        // Authentication
+        registerModules("uk.co.lydegreen.authentication", "Auth", (classInfo) -> {
+            e.jersey().register(classInfo.load());
+            // Register the authenticator with the environment
+
+        });
     }
-
-
-
-
 
     // Resources
     private void registerModules(String packageName, String classNameSuffix, Consumer<? super ClassInfo> action) {

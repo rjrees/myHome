@@ -1,6 +1,8 @@
 package uk.co.lydegreen.resources;
 
 import org.skife.jdbi.v2.DBI;
+
+import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -24,26 +26,32 @@ public class RecipeResource {
     private final RecipeDAO recipeDAO;
     private final Validator validator;
 
-    public RecipeResource(DBI jdbi, Validator validator) {
+    public RecipeResource(DBI jdbi, Validator validator)
+    {
         recipeDAO = jdbi.onDemand(RecipeDAO.class);
         this.validator = validator;
     }
 
     @GET
     @Path("/{id}")
-    public Response getRecipeById(@PathParam("id") int id) {
+    public Response getRecipeById(@PathParam("id") int id)
+    {
         // retrieve information about the a recipe with the provided id
         Recipe recipe = recipeDAO.getRecipeById(id);
         return Response
                 .ok(recipe)
                 .build();
     }
+
+
     @POST
     @Path("/add")
-    public Response createRecipe(Recipe recipe, @PathParam("UID") String UID, @PathParam("name") String name, @PathParam("description") String description); {
-    Recipe recipe = recipeDAO.createRecipe(UID, name, description);
+    public Response createRecipe(Recipe recipe, @PathParam("uid") String uid, @PathParam("name") String name, @PathParam("description") String description) throws URISyntaxException
+    {
+        Set<ConstraintViolation<Recipe>> violations = validator.validate(recipe);
+        recipeDAO.createRecipe(uid, name, description);
         return Response
-                .ok(id)
+                .ok(uid)
                 .build();
     }
 }

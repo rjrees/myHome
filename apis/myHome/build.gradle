@@ -4,12 +4,10 @@ plugins {
     id 'application'
 }
 
-
 repositories {
     mavenCentral()
     jcenter()
 }
-
 
 description = 'myHome api layer'
 sourceCompatibility = 1.8
@@ -18,8 +16,9 @@ mainClassName = 'uk.co.lydegreen.App'
 group = 'uk.co.lydegreen'
 version = '0.0.1-SNAPSHOT'
 def changeLog = "$projectDir/apis/myHome/resources/liquibase/changelog.xml"
-//String dropWizardVersion = '1.3.12'
-String dropWizardVersion = '1.2.3'
+String dropWizardVersion = '1.3.12'
+//String dropWizardVersion = '1.2.3'
+String junitVersion = '5.5.0'
 
 
 //TODO Get Liquibase to work
@@ -31,16 +30,18 @@ dependencies {
     implementation "io.dropwizard:dropwizard-client:$dropWizardVersion"
     implementation "io.dropwizard:dropwizard-migrations:$dropWizardVersion"
     implementation "io.dropwizard:dropwizard-views-mustache:$dropWizardVersion"
-    implementation "io.dropwizard:dropwizard-dropwizard-assets:$dropWizardVersion"
+    implementation "io.dropwizard:dropwizard-assets:$dropWizardVersion"
     
     // MySQL
     implementation 'mysql:mysql-connector-java:5.1.37'
     
     // Jersey Client
     implementation 'org.glassfish.jersey.core:jersey-client:2.19'
-    testImplementation 'org.junit.jupiter:junit-jupiter:RELEASE'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:RELEASE'
 
+
+    // JUnit test suite
+    testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 run {
