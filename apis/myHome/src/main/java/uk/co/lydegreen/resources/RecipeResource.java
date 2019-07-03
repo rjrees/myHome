@@ -41,7 +41,7 @@ public class RecipeResource {
     @POST
     @Path("/add")
     public Response createRecipe(Recipe recipe, @PathParam("UID") String UID, @PathParam("name") String name, @PathParam("description") String description); {
-    Recipe recipe = recipeDAO.createRecipe(UID, name, description);
+    Recipe recipe = recipeDAO.createRecipe(uid, name, description);
         return Response
                 .ok(id)
                 .build();

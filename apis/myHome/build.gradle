@@ -2,6 +2,8 @@ plugins {
     id 'java'
     id 'idea' // optional (to generate IntelliJ IDEA project files)
     id 'application'
+    id "org.liquibase.gradle" version "2.0.1"
+    id 'maven'
 }
 
 
@@ -31,16 +33,35 @@ dependencies {
     implementation "io.dropwizard:dropwizard-client:$dropWizardVersion"
     implementation "io.dropwizard:dropwizard-migrations:$dropWizardVersion"
     implementation "io.dropwizard:dropwizard-views-mustache:$dropWizardVersion"
-    implementation "io.dropwizard:dropwizard-dropwizard-assets:$dropWizardVersion"
+    implementation "io.dropwizard:dropwizard-assets:$dropWizardVersion"
     
     // MySQL
     implementation 'mysql:mysql-connector-java:5.1.37'
+
+    // Liquibase
+    liquibaseRuntime 'org.liquibase:liquibase-core:3.6.1'
+    liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:2.0.1'
+    liquibaseRuntime 'mysql:mysql-connector-java:5.1.37'
     
     // Jersey Client
     implementation 'org.glassfish.jersey.core:jersey-client:2.19'
     testImplementation 'org.junit.jupiter:junit-jupiter:RELEASE'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:RELEASE'
 
+}
+
+liquibase {
+    activities {
+        main {
+            changeLogFile 'apis/myHome/resources/db/myHome.sql'
+            url 'jdbc:mysql://localhost:3306/myHome'
+            driver 'com.mysql.jdbc.Driver'
+            username 'root'
+            password '${db_root_password}'
+        }
+
+    }
+    runList = 'main'
 }
 
 run {

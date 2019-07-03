@@ -26,7 +26,7 @@ import uk.co.lydegreen.resources.*;
 
 public class App extends Application<MyHomeConfiguration>{
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    //private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) throws Exception {
         new App().run(args);
