@@ -1,0 +1,25 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'idea'
+    id 'gradle-kubernetes-plugin'
+}
+
+buildscript {
+    repositories { jcenter() }
+}
+
+task prepareK8File {
+    doFirst {
+        copy {
+            from 'k8/templates/ldap/'
+            into 'k8/templates/ldap/'
+            include 'ldap.yaml.template'
+            rename 'ldap.yaml.template', 'ldap.yaml'
+            filter(ReplaceTokens, tokens: [ auth_ldap_password : ldap_password])
+        }
+    }
+}
+
+
+buildDocker.dependsOn prepareK8File

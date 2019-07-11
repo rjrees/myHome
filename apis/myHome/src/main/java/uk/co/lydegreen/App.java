@@ -80,7 +80,6 @@ public class App extends Application<MyHomeConfiguration>{
             }
         });
 
-
         // Resources
         registerModules("uk.co.lydegreen.resources", "Resource", (classInfo) -> {
             e.jersey().register(classInfo.load());
@@ -88,10 +87,6 @@ public class App extends Application<MyHomeConfiguration>{
 
         });
     }
-
-
-
-
 
     // Resources
     private void registerModules(String packageName, String classNameSuffix, Consumer<? super ClassInfo> action) {
