@@ -26,24 +26,20 @@ public class RecipeResource {
     private final RecipeDAO recipeDAO;
     private final Validator validator;
 
-    public RecipeResource(DBI jdbi, Validator validator)
-    {
+    public RecipeResource(DBI jdbi, Validator validator) {
         recipeDAO = jdbi.onDemand(RecipeDAO.class);
         this.validator = validator;
     }
 
     @GET
     @Path("/{id}")
-    public Response getRecipeById(@PathParam("id") int id)
-    {
+    public Response getRecipeById(@PathParam("id") int id) {
         // retrieve information about the a recipe with the provided id
         Recipe recipe = recipeDAO.getRecipeById(id);
         return Response
                 .ok(recipe)
                 .build();
     }
-
-
     @POST
     @Path("/add")
     public Response createRecipe(Recipe recipe, @PathParam("uid") String uid, @PathParam("name") String name, @PathParam("description") String description) throws URISyntaxException
