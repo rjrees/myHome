@@ -56,7 +56,7 @@ liquibase {
             url "jdbc:mysql://${db_hostname}:3306/myHome"
             driver 'com.mysql.jdbc.Driver'
             username 'root'
-            password '${db_root_password}'
+            password "${db_root_password}"
         }
 
     }

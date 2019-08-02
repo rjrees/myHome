@@ -1,8 +1,8 @@
-/*package uk.co.lydegreen.authentication;
+package uk.co.lydegreen.auth;
 
 /**
  * Created by richard on 06/03/17.
-
+*/
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.basic.BasicCredentials;
 import io.dropwizard.auth.Authenticator;
@@ -18,4 +18,3 @@ public class MyHomeAuthenticator implements Authenticator<BasicCredentials, User
             return Optional.absent();
         }
     }
-*/
