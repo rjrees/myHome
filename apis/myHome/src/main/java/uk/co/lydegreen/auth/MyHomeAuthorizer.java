@@ -1,4 +1,4 @@
-/*package uk.co.lydegreen.authentication;
+package uk.co.lydegreen.auth;
 
 import io.dropwizard.auth.Authorizer;
 //import org.eclipse.jetty.server.Authentication;
@@ -10,5 +10,3 @@ public class MyHomeAuthorizer implements Authorizer<User> {
         return user.getName().equals("good-guy") && role.equals("ADMIN");
         }
 }
-
-*/
