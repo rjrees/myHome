@@ -53,7 +53,7 @@ liquibase {
     activities {
         main {
             changeLogFile 'apis/myHome/resources/db/myHome.sql'
-            url "jdbc:mysql://${db_hostname}:3306/myHome"
+s           url "jdbc:mysql://${db_hostname}:3306/myHome"
             driver 'com.mysql.jdbc.Driver'
             username 'root'
             password "${db_root_password}"
