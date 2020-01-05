@@ -47,7 +47,4 @@ ADD run /var/tmp/
 # See the server.xml file
 #ADD server.xml /usr/local/tomcat/conf/server.xml
 
-
-
-
 CMD ["/var/tmp/run"]

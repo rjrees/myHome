@@ -57,7 +57,7 @@ spec:
         app: mariadb
     spec:
       volumes:
-        - name: db_vol
+        - name: dbvol
           hostPath:
             path: /target/mariadb
       containers:
@@ -67,7 +67,7 @@ spec:
           ports:
             - containerPort: 3306
           volumeMounts:
-            - name: db_vol
+            - name: dbvol
               mountPath: /mariadb
           env:
             - name: MYSQL_ROOT_PASSWORD

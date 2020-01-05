@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 function dev-local()
 {
     kubectl config get-contexts
