@@ -52,11 +52,10 @@ dependencies {
 liquibase {
     activities {
         main {
-            changeLogFile 'apis/myHome/resources/db/myHome.sql'
-s           url "jdbc:mysql://${db_hostname}:3306/myHome"
-            driver 'com.mysql.jdbc.Driver'
-            username 'root'
-            password "${db_root_password}"
+            changeLogFile 'apis/myHome/resources/db/myHome.sql';
+            url System.env.db_url
+            username System.env.DbUsername
+            password System.env.DbPassword
         }
 
     }
