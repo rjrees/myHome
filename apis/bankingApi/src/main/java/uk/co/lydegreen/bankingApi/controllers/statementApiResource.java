@@ -13,8 +13,10 @@ public class statementApiResource {
 
 
     @RequestMapping(method = RequestMethod.GET, path = "/statement")
-    public List<Transactions> getTransactions()
+    public List<Transactions> Transactions()
     {
-        return new Transactions();
+        Transactions Transaction = new Transactions;
+        Transaction.getTransaction();
+        return (List<Transactions>) Transaction;
     }
 }

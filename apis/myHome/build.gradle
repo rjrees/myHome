@@ -18,8 +18,7 @@ mainClassName = 'uk.co.lydegreen.App'
 group = 'uk.co.lydegreen'
 version = '0.0.1-SNAPSHOT'
 def changeLog = "$projectDir/apis/myHome/resources/liquibase/changelog.xml"
-String dropWizardVersion = '1.3.12'
-//String dropWizardVersion = '1.2.3'
+String dropWizardVersion = 'stable'
 String junitVersion = '5.5.0'
 
 dependencies {
