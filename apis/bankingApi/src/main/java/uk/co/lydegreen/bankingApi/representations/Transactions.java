@@ -14,12 +14,6 @@ public class Transactions {
     long CreditAmount;
     long Balance;
 
-    public String getTransaction() {
-        return DateTransactionDate;
-        //return (DateTransactionDate, TransactionType, SortCode, AccountNumber, TransactionDescription, DebitAmount, CreditAmount, Balance);
-    }
-
-
     public Transactions(String dateTransactionDate, String transactionType, String sortCode, long accountNumber, String transactionDescription, long debitAmount, long creditAmount, long balance) {
         DateTransactionDate = dateTransactionDate;
         TransactionType = transactionType;
@@ -29,5 +23,10 @@ public class Transactions {
         DebitAmount = debitAmount;
         CreditAmount = creditAmount;
         Balance = balance;
+    }
+
+    public void getTransaction() {
+
+
     }
 }
