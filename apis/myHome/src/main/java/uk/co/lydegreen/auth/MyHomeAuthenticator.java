@@ -6,7 +6,7 @@ package uk.co.lydegreen.auth;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.basic.BasicCredentials;
 import io.dropwizard.auth.Authenticator;
-import org.eclipse.jetty.server.Authentication;
+
 
 public class MyHomeAuthenticator implements Authenticator<BasicCredentials, User>{
 
