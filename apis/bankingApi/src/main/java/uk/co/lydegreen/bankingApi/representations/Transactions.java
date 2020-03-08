@@ -50,7 +50,7 @@ public class Transactions {
     public void getTransaction(Date StartDate, Date FinishDate) {
 
     }
-
+}
 /*
     public Transactions(String dateTransactionDate, String transactionType, String sortCode, long accountNumber, String transactionDescription, long debitAmount, long creditAmount, long balance) {
         DateTransactionDate = dateTransactionDate;
@@ -61,6 +61,4 @@ public class Transactions {
         DebitAmount = debitAmount;
         CreditAmount = creditAmount;
         Balance = balance;
-    }
-*/
-}
+    } */
