@@ -5,6 +5,11 @@ function pki()
   vault write pki/root/generate/internal common_name=pariah.internal ttl=8760h
 }
 
+function init()
+{
+  vault operator init
+}
+
 function users()
 {
   vault auth enable userpass
