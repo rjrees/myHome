@@ -1,8 +1,9 @@
+HELP.md
 .gradle
-/build/
-target/
+build/
 !gradle/wrapper/gradle-wrapper.jar
-ui/
+!**/src/main/**
+!**/src/test/**
 
 ### STS ###
 .apt_generated
@@ -11,26 +12,21 @@ ui/
 .project
 .settings
 .springBeans
+.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+out/
 
 ### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-.git
-*.class
-.idea/**
-.gradle/**
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
-#Build Envs
-.vagrant
+### VS Code ###
+.vscode/
