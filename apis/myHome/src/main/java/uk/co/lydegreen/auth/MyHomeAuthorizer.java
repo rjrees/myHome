@@ -3,7 +3,7 @@ package uk.co.lydegreen.auth;
 import io.dropwizard.auth.Authorizer;
 
 
-public class MyHomeAuthorizer implements Authorizer<User> {
+public class MyHomeAuthorizer implements Authorizer<User>  {
 
     @Override
     public boolean authorize(User user, String role) {
