@@ -80,8 +80,15 @@ public class App extends Application<MyHomeConfiguration>{
             }
         });
 
+
         // Resources
         registerModules("uk.co.lydegreen.resources", "Resource", (classInfo) -> {
+            e.jersey().register(classInfo.load());
+            // Register the authenticator with the environment
+
+        });
+        // Authentication
+        registerModules("uk.co.lydegreen.authentication", "Auth", (classInfo) -> {
             e.jersey().register(classInfo.load());
             // Register the authenticator with the environment
 

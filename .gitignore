@@ -1,4 +1,4 @@
-.gradle
+**.gradle
 /build/
 target/
 !gradle/wrapper/gradle-wrapper.jar
@@ -25,6 +25,12 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+.git
+*.class
+.idea/**
+.gradle/**
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
 #Build Envs
 .vagrant

@@ -29,7 +29,7 @@ public class ContactResource {
 
     @GET
     @Path("/{id}")
-    public Response getContact(@PathParam("id") int id, @Auth Boolean isAuthenticated) {
+    public Response getContact(@PathParam("id") int id, /*@Auth*/ Boolean isAuthenticated) {
         // retrieve information about the contact with the provided id
         Contact contact = contactDao.getContactById(id);
         return Response
@@ -38,7 +38,7 @@ public class ContactResource {
     }
 
     @POST
-    public Response createContact(Contact contact, @Auth Boolean isAuthenticated) throws URISyntaxException {
+    public Response createContact(Contact contact, /*@Auth*/ Boolean isAuthenticated) throws URISyntaxException {
         // Validate the contact's data
         Set<ConstraintViolation<Contact>> violations = validator.validate(contact);
         // Are there any constraint violations?
@@ -48,9 +48,10 @@ public class ContactResource {
             for (ConstraintViolation<Contact> violation : violations) {
                 validationMessages.add(violation.getPropertyPath().toString() + ": " + violation.getMessage());
             }
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(validationMessages)
+            Response.ResponseBuilder status = Response
+                    .status(Response.Status.BAD_REQUEST);
+            status.entity(validationMessages);
+            return status
                     .build();
         } else {
             // OK, no validation errors
@@ -63,7 +64,7 @@ public class ContactResource {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteContact(@PathParam("id") int id, @Auth Boolean isAuthenticated) {
+    public Response deleteContact(@PathParam("id") int id, /*@Auth*/ Boolean isAuthenticated) {
         // delete the contact with the provided id
         contactDao.deleteContact(id);
         return Response.noContent().build();
@@ -71,7 +72,7 @@ public class ContactResource {
 
     @PUT
     @Path("/{id}")
-    public Response updateContact(@PathParam("id") int id, Contact contact, @Auth Boolean isAuthenticated) {
+    public Response updateContact(@PathParam("id") int id, Contact contact, /*@Auth*/ Boolean isAuthenticated) {
         // Validate the updated data
         Set<ConstraintViolation<Contact>> violations = validator.validate(contact);
         // Are there any constraint violations?

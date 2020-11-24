@@ -1,6 +1,9 @@
-package uk.co.lydegreen.resources;
+package uk.co.lydegreen.auth;
 
-public class MyHomeAuthorizer implements Authorizer<User> {
+import io.dropwizard.auth.Authorizer;
+
+
+public class MyHomeAuthorizer implements Authorizer<User>  {
 
     @Override
     public boolean authorize(User user, String role) {

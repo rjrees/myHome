@@ -11,8 +11,8 @@ WORKDIR $CATALINA_HOME
 # Note: By default tomcat does NOT listen on 8443. You must add a custom server.xml file to change this
 EXPOSE 8080 8443
 
-ENV MVN_REPO=https://maven.forgerock.org/repo/repo/org/forgerock/openam
-ENV OPENAM_VERSION=14.0.0-SNAPSHOT
+ENV MVN_REPO=https://maven.forgerock.org/repo/repo/org/forgerock/ce/openam/
+ENV OPENAM_VERSION=11.0.3
 
 
 RUN curl $MVN_REPO/openam-server/$OPENAM_VERSION/openam-server-$OPENAM_VERSION.war \
@@ -21,7 +21,7 @@ RUN curl $MVN_REPO/openam-server/$OPENAM_VERSION/openam-server-$OPENAM_VERSION.w
  && curl $MVN_REPO/openam-distribution-ssoconfiguratortools/$OPENAM_VERSION/openam-distribution-ssoconfiguratortools-$OPENAM_VERSION.zip \
        -o /tmp/ssoconfig.zip \
  && unzip /tmp/ssoconfig.zip -d /var/tmp/ssoconfig \
- && rm /tmp/*zip /tmp/*war
+ && rm -rf /tmp/*zip /tmp/*war
 
 
 # For testing Docker builds use local files - much faster

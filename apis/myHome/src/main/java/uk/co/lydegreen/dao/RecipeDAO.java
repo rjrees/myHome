@@ -13,17 +13,17 @@ import uk.co.lydegreen.representations.Recipe;
 public interface RecipeDAO {
 
     @Mapper(RecipeMapper.class)
-    @SqlQuery("select * from Recipe where UID = :id")
+    @SqlQuery("select * from Recipe where uid = :id")
     Recipe getRecipeById(@Bind("id") int id);
 
     @GetGeneratedKeys
-    @SqlUpdate("insert into Recipe (id, UID, Description, created_on, updated, datetime) values (NULL, :UID, :name, :description)")
-    int createRecipe(@Bind("UID") String UID, @Bind("name") String name, @Bind("description") String description);
+    @SqlUpdate("insert into Recipe (id, uid, Description, created_on, updated, datetime) values (NULL, :uid, :name, :description)")
+    int createRecipe(@Bind("uid") String uid, @Bind("name") String name, @Bind("description") String description);
 
-    @SqlUpdate("insert into Recipe (id, UID, Description, created_on, updated datetime) values (NULL, :UID, :name, :description)")
-    void updateRecipe(@Bind("UID") String UID, @Bind("name") String name, @Bind("description") String description);
+    @SqlUpdate("insert into Recipe (id, uid, Description, created_on, updated datetime) values (NULL, :uid, :name, :description)")
+    void updateRecipe(@Bind("uid") String uid, @Bind("name") String name, @Bind("description") String description);
 
-    @SqlUpdate("delete from Recipe where UID = :id")
+    @SqlUpdate("delete from Recipe where uid = :id")
     void deleteRecipe(@Bind("id") int id);
 
 }
