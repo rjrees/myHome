@@ -4,7 +4,7 @@
 function dev-local()
 {
     kubectl config get-contexts
-    kubectl config use-context docker-for-desktop
+    kubectl config use-context docker-desktop
     kubectl create namespace myhome
     kubectl create -f k8/templates/db/db.yaml
     kubectl create -f k8/templates/java/java.yaml

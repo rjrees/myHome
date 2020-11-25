@@ -1,6 +1,6 @@
 **.gradle
 /build/
-target/
+**target/**
 !gradle/wrapper/gradle-wrapper.jar
 ui/
 
@@ -29,6 +29,7 @@ nbdist/
 *.class
 .idea/**
 .gradle/**
+**out
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
