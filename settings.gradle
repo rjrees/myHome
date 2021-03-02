@@ -1,2 +1,4 @@
 include 'apis:myHome'
 include 'apis:bankingApi'
+include 'apis:blog'
+include 'frontend:HomeController'

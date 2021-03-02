@@ -11,5 +11,5 @@ Before starting make sure you have the following installed
 
 * MacOS environment
 * Docker with K8 running - increase Docker memory allocation to at least 6GiB
-* Java 8+ Quick Installation
+* AWS Java 11+ Quick Installation
         

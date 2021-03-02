@@ -51,8 +51,8 @@ public class Transactions {
 
     }
 }
-/*
-    public Transactions(String dateTransactionDate, String transactionType, String sortCode, long accountNumber, String transactionDescription, long debitAmount, long creditAmount, long balance) {
+
+  /*  public Transactions(String dateTransactionDate, String transactionType, String sortCode, long accountNumber, String transactionDescription, long debitAmount, long creditAmount, long balance) {
         DateTransactionDate = dateTransactionDate;
         TransactionType = transactionType;
         SortCode = sortCode;

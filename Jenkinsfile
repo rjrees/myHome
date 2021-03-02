@@ -3,29 +3,29 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout source') {
+        /*stage('Checkout source') {
             steps {
                 git url: "${repo}", branch: "${branch}",  credentialsId: "${credentialsId}"
             }
-        }
+        } */
         stage('Build API') {
             steps {
                 sh '''
-                    mvn clean build
+                    gradlew build
                 '''
             }
         }
         stage('Test API') {
             steps {
                 sh '''
-                    mvn clean test
+                    gradlew test
                 '''
             }
         }
         stage('Deploy API') {
             steps {
                 sh '''
-                    mvn package deploy
+                    gradlew bootJar
                 '''
             }
         }
