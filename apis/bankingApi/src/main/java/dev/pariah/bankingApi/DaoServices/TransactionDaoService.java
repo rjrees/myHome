@@ -1,7 +1,7 @@
-package uk.co.lydegreen.bankingApi.DaoServices;
+package dev.pariah.bankingApi.DaoServices;
 
+import dev.pariah.bankingApi.representations.Transactions;
 import org.springframework.stereotype.Component;
-import uk.co.lydegreen.bankingApi.representations.Transactions;
 
 import java.util.ArrayList;
 import java.util.List;

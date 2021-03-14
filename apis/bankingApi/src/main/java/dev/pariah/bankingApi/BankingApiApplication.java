@@ -1,8 +1,8 @@
-package uk.co.lydegreen.bankingApi;
+package dev.pariah.bankingApi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import uk.co.lydegreen.bankingApi.controllers.*;
+import dev.pariah.bankingApi.controllers.*;
 
 @SpringBootApplication
 public class BankingApiApplication {

@@ -3,6 +3,7 @@
 **target/**
 !gradle/wrapper/gradle-wrapper.jar
 ui/
+.env
 
 ### STS ###
 .apt_generated
@@ -35,3 +36,6 @@ nbdist/
 
 #Build Envs
 .vagrant
+
+target
+**target

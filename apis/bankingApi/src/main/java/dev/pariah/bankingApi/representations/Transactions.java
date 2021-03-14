@@ -1,4 +1,4 @@
-package uk.co.lydegreen.bankingApi.representations;
+package dev.pariah.bankingApi.representations;
 
 
 import java.sql.Date;
@@ -48,11 +48,10 @@ public class Transactions {
     }
 
     public void getTransaction(Date StartDate, Date FinishDate) {
-
     }
-}
 
-  /*  public Transactions(String dateTransactionDate, String transactionType, String sortCode, long accountNumber, String transactionDescription, long debitAmount, long creditAmount, long balance) {
+
+   /*public getTransactions(String dateTransactionDate, String transactionType, String sortCode, long accountNumber, String transactionDescription, long debitAmount, long creditAmount, long balance) {
         DateTransactionDate = dateTransactionDate;
         TransactionType = transactionType;
         SortCode = sortCode;
@@ -62,3 +61,4 @@ public class Transactions {
         CreditAmount = creditAmount;
         Balance = balance;
     } */
+}
